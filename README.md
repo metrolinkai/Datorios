@@ -14,9 +14,9 @@ See every record that passed through each of your operators, unlocking the abili
 A lot is left to be desired when testing your pipelines. Unit testing only gives us half the story, by seeing how all of your operators work together when the data flows you can be confident in the results provided by your pipelines.
 
 ### **Peace of Mind in Production Monitoring:**
-Access to your mission-critical performance metrics gives you the peace of mind knowing your jobs are resourced correctly and won\'92t fall over when more data starts flowing in.
+Access to your mission-critical performance metrics gives you the peace of mind knowing your jobs are resourced correctly and won't fall over when more data starts flowing in.
 
 ### **Breeze Through Window Investigation:**
-With the \'93Window Investigation\'94 tool you can magnify the problems you are encountering with windowing. Problems can include late events, incorrect watermark settings, or even your aggregation functions.
+With the Window Investigation tool you can magnify the problems you are encountering with windowing. Problems can include late events, incorrect watermark settings, or even your aggregation functions.
 
 [![](https://github.com/metrolinkai/Datorios/blob/main/resources/Copy%20of%20squirrel%20xray%20(1).png)](https://datorios.con "Making your Flink transparent")
