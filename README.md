@@ -2,7 +2,7 @@
 
 
 
-# See The Data Behind Your Data - Data Observability for Apache Flink (R)
+# See The Data Behind Your Data - Data Observability for Apache Flink ® 
 
 ### **Unified Investigation Platform:**
 When all of your pipeline data is available in one place, you no longer have the need to waste time flipping between different places to access source data, application logging, and pipeline metrics. The precious time spent flipping between platforms could be time spent bringing your pipelines back to a healthy state.
