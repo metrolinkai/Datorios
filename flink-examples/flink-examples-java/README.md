@@ -1,7 +1,7 @@
 ![](https://github.com/metrolinkai/Datorios/blob/main/resources/Horizontal%20Positive.png)
 This Apache Flink application sets up a streaming job that generates in-memory data representing heart rate readings with timestamps. It then processes this data using a tumbling window to find and output the maximum heart rate for each participant within each window period, allowing for some lateness in the data. The key components include setting up the execution environment, defining the data source, partitioning the data, applying windowing, and computing the maximum value.
 
-####Package and Imports
+### Package and Imports
 ```java
 package org.apache.flink.streaming.examples.windowing;
 import org.apache.flink.api.common.typeinfo.Types;
@@ -17,7 +17,7 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 - **Package**: Defines the package org.apache.flink.streaming.examples.windowing.
 - **Imports**: Imports necessary classes from Apache Flink libraries, including data types (tuples), utilities (ParameterTool), and various streaming and windowing classes.
 
-####Class and Main Method
+### Class and Main Method
 ```java
 public class WindowDemoExample {
    public static void main(String[] args) throws Exception {
@@ -25,7 +25,7 @@ public class WindowDemoExample {
 - **Class Definition**: Defines the main class WindowDemoExample.
 - **Main Method**: The entry point of the program.
 
-####Parameter Initialization
+### Parameter Initialization
 ```java
 final ParameterTool params = ParameterTool.fromArgs(args);
 final long allowedLateness = params.getLong("allowedLateness", 2000L
@@ -39,7 +39,7 @@ final long rate = params.getLong("rate", 20L);
 - **limit**: Maximum number of records to generate.
 - **rate:** Rate at which records are generated.
 
-####Stream Execution Environment
+### Stream Execution Environment
 ```java
 StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 DataStream<Tuple3<String, Long, Integer>> source = env.addSource(new WindowDemoSampleData(limit, rate));
@@ -50,7 +50,7 @@ DataStream<Tuple3<String, Long, Integer>> source = env.addSource(new WindowDemoS
 - **limit**: Maximum number of records to generate.
 - **rate:** Rate at which records are generated.
 
-####Data Stream Processing
+### Data Stream Processing
 ```java
         DataStream<Tuple2<String, Integer>> outputStream =
                 source.keyBy(value -> value.f0)
@@ -69,7 +69,7 @@ allowedLateness: Allows for late elements within a specified duration.
 - **name:** Sets a name for the operation.
 - **returns**: Specifies the return type of the transformation.
 
-####Output and Execution
+### Output and Execution
 ```java
         outputStream.print();
         env.execute();
