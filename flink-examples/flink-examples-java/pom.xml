@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>Flink Java Jobs Examples</name>
+
+    <groupId>datorios.flink</groupId>
+    <artifactId>flink-examples</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+
+    <properties>
+        <flink.version>1.17.2</flink.version>
+        <java.version>1.8</java.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <artficats.dir>${project.basedir}/job-jars</artficats.dir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-java</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-java</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-examples-streaming_${scala.binary.version}</artifactId>
+            <version>1.17.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!-- runtime-web dependency is need to start web UI from IDE -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-runtime-web</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- queryable-state dependencies are needed for respective examples -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-queryable-state-runtime</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-queryable-state-client-java</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+<!--             self-contained jars for each example-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <!-- StocksExample -->
+                    <execution>
+                        <id>Stocks</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>Stocks</classifier>
+
+                            <archive>
+                                <manifestEntries>
+                                    <program-class>com.datorios.flink.streaming.examples.stocks.StocksExample</program-class>
+                                </manifestEntries>
+                            </archive>
+
+                            <includes>
+                                <include>com/datorios/flink/streaming/examples/stocks/*.class</include>
+                                <include>META-INF/LICENSE</include>
+                                <include>META-INF/NOTICE</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>WindowDemoExample</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>WindowDemoExample</classifier>
+                            <archive>
+                                <manifest>
+                                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                </manifest>
+                                <manifestEntries>
+                                    <program-class>com.datorios.flink.streaming.examples.windowing.WindowDemoExample
+                                    </program-class>
+                                </manifestEntries>
+                            </archive>
+
+                            <includes>
+                                <include>com/datorios/flink/streaming/examples/windowing/*.class</include>
+                                <include>com/datorios/flink/streaming/examples/utils/ThrottledIterator.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <id>copy-jars</id>
+                        <configuration>
+                            <target>
+                                <echo message="Copying job-jars..."/>
+                                <copy file="target/flink-examples-${project.version}-WindowDemoExample.jar"
+                                      tofile="${artficats.dir}/window/WindowDemoExample.jar"/>
+                                <copy file="target/flink-examples-${project.version}-Stocks.jar"
+                                      tofile="${artficats.dir}/stocks/StocksExample.jar"/>
+                            </target>
+
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <id>clean-jobs</id>
+                        <configuration>
+                            <target>
+                                <echo message="Deleting job-jars directory"/>
+                                <delete dir="${artficats.dir}"/>
+                                <delete dir="${project.basedir}/target"/>
+                            </target>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

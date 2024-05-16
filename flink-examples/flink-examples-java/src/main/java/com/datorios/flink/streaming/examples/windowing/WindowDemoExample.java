@@ -1,4 +1,4 @@
-package org.apache.flink.streaming.examples.windowing;
+package com.datorios.flink.streaming.examples.windowing;
 
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
