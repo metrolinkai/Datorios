@@ -1,9 +1,4 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
 
 \f0\fs24 \cf0 ![](https://github.com/metrolinkai/Datorios/blob/main/resources/Horizontal%20Positive.png)\
 \
@@ -28,4 +23,3 @@ Access to your mission-critical performance metrics gives you the peace of mind 
 With the \'93Window Investigation\'94 tool you can magnify the problems you are encountering with windowing. Problems can include late events, incorrect watermark settings, or even your aggregation functions.\
 \
 [![](https://github.com/metrolinkai/Datorios/blob/main/resources/Copy%20of%20squirrel%20xray%20(1).png)](https://datorios.con "Making your Flink transparent")\
-}
