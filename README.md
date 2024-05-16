@@ -26,6 +26,8 @@ Datorios consists of two components:
 - Datorios client running on Docker Compose - The client will install the Apache Flink engine on your local/cloud machine, where your jobs will be deployed (embedding Datorios to your current Flink is coming up soon).
 - A cloud observability service is used for deep investigation and debugging.
 
+![](https://github.com/metrolinkai/Datorios/blob/main/resources/Horizontal%20Positive.png)
+
 [Signup](https://app.datorios.com/signup) to download the Datorios cluster - You can use your own or the demo Flink jobs in this repositort for a test run
 
 
