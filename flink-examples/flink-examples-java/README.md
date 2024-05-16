@@ -1,6 +1,8 @@
 ![](https://github.com/metrolinkai/Datorios/blob/main/resources/Horizontal%20Positive.png)
 This Apache Flink application sets up a streaming job that generates in-memory data representing heart rate readings with timestamps. It then processes this data using a tumbling window to find and output the maximum heart rate for each participant within each window period, allowing for some lateness in the data. The key components include setting up the execution environment, defining the data source, partitioning the data, applying windowing, and computing the maximum value.
 
+The example consists on the java source code and the target jar file
+
 ### Package and Imports
 ```java
 package org.apache.flink.streaming.examples.windowing;
