@@ -19,7 +19,7 @@ Access to your mission-critical performance metrics gives you the peace of mind 
 ### **Breeze Through Window Investigation:**
 With the Window Investigation tool you can magnify the problems you are encountering with windowing. Problems can include late events, incorrect watermark settings, or even your aggregation functions.
 
-# **Basic Architecture:** 
+# **High level Architecture:** 
 Datorios consists of two components:
 
 
