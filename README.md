@@ -30,5 +30,10 @@ Datorios consists of two components:
 
 [Signup](https://app.datorios.com/signup) to download the Datorios cluster - You can use your own or the demo Flink jobs in [this repository](https://github.com/metrolinkai/Datorios/tree/main/flink-examples) for a test run
 
+# **K8S Architecture:** 
+
+![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20architecture.png)
+
+[K8S deployment](https://github.com/metrolinkai/Datorios/tree/main/flink-examples)
 
 [![](https://github.com/metrolinkai/Datorios/blob/main/resources/Copy%20of%20squirrel%20xray%20(1).png)](https://datorios.con "Making your Flink transparent")
