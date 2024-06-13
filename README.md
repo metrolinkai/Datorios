@@ -32,7 +32,7 @@ Datorios consists of two components:
 
 # **K8S Architecture:** 
 
-![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20architecture.png)
+![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20architecture%202.png)
 
 [K8S deployment](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20deployment.png)
 
