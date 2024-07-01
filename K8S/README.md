@@ -2,6 +2,6 @@
 
 # **K8S Architecture:** 
 
-![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20architecture%202.png)
+![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8K%20Architecture%203.png)
 
 ![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20deployment%202.png)
