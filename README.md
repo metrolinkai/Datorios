@@ -32,8 +32,8 @@ Datorios consists of two components:
 
 # **K8S Architecture:** 
 
-![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20architecture%202.png)
+![](https://github.com/metrolinkai/Datorios/blob/main/resources/K8K%20Architecture%203.png)
 
-[K8S deployment](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20deployment%202.png)
+[SaaS side](https://github.com/metrolinkai/Datorios/blob/main/resources/K8S%20deployment%202.png)
 
 [![](https://github.com/metrolinkai/Datorios/blob/main/resources/Copy%20of%20squirrel%20xray%20(1).png)](https://datorios.con "Making your Flink transparent")
