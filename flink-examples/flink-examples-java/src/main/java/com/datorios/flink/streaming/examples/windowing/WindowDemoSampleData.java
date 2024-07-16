@@ -12,11 +12,12 @@ import java.util.Random;
 public class WindowDemoSampleData implements SourceFunction<Tuple3<String, Long, Integer>> {
 
     static final String[] NAMES = {"tom", "jerry", "alice", "bob", "john", "grace"};
-    static final Long[] CLOCK_TICK = {1000L, 200L, 1200L, 2000L, 2100L, -900L, 800L, 700L, 920L, 3200L, 500L -9000L, -800L};
 
     private final ThrottledIterator<Tuple3<String, Long, Integer>> source;
-    public WindowDemoSampleData(Long limit, Long rate){
-        source = new ThrottledIterator<>(new PulseMeasurementSource(limit), rate);
+
+
+    public WindowDemoSampleData(Long limit, Long rate, Long timeBetweenEvents){
+        source = new ThrottledIterator<>(new PulseMeasurementSource(limit, timeBetweenEvents), rate);
     }
 
     @Override
@@ -45,8 +46,11 @@ public class WindowDemoSampleData implements SourceFunction<Tuple3<String, Long,
 
         private Long eventsCounter;
 
-        public PulseMeasurementSource(Long eventsCounter){
+        private final Long timeBetweenEvents;
+
+        public PulseMeasurementSource(Long eventsCounter, Long timeBetweenEvents){
             this.eventsCounter = eventsCounter;
+            this.timeBetweenEvents = timeBetweenEvents;
         }
 
         @Override
@@ -58,6 +62,9 @@ public class WindowDemoSampleData implements SourceFunction<Tuple3<String, Long,
         public Tuple3<String, Long, Integer> next() {
             clock += getNextTick();
             eventsCounter--;
+            if (eventsCounter % 20 == 0){
+                return new Tuple3<>(NAMES[rnd.nextInt(NAMES.length)], clock/2,50 + rnd.nextInt(100));
+            }
             return new Tuple3<>(NAMES[rnd.nextInt(NAMES.length)], clock ,50 + rnd.nextInt(100) );
         }
 
@@ -67,11 +74,13 @@ public class WindowDemoSampleData implements SourceFunction<Tuple3<String, Long,
         }
 
         private Long getNextTick() {
-            Long tick = CLOCK_TICK[rnd.nextInt(CLOCK_TICK.length)];
-            while (clock + tick <= 0) {
-                tick = CLOCK_TICK[rnd.nextInt(CLOCK_TICK.length)];
+            if (eventsCounter % 7 == 0){
+                if (clock - 4*timeBetweenEvents <= 0) {
+                    return timeBetweenEvents;
+                }
+                return - 4*timeBetweenEvents;
             }
-            return tick;
+            return timeBetweenEvents;
         }
     }
 
